@@ -70,7 +70,7 @@ init_input <- function() {
   input_ref <- list()
 
 
-  input$global_parameters <- list(age0 = 40, time_horizon = 20, discount_cost = 0.03, discount_qaly = 0.03)
+  input$global_parameters <- list(age0 = 40, time_horizon = 20, discount_cost = 0.015, discount_qaly = 0.015)
   input_help$global_parameters <- list(age0 = "Starting age in the model", time_horizon = "Model time horizon", discount_cost = "Discount value for cost outcomes",
                                        discount_qaly = "Discount value for QALY outcomes")
 
@@ -202,8 +202,16 @@ init_input <- function() {
 
 
   input_help$smoking$ln_h_ces_betas <- "Log-hazard of smoking cessation"
-  input$smoking$ln_h_ces_betas <- c(intercept = -3.7,  sex = 0, age = 0.02, age2 = 0, calendar_time = -0.01, diagnosis = 0.16)
-  input_ref$smoking$ln_h_ces_betas <- ""
+  input$smoking$ln_h_ces_betas <- c(intercept = -3.7,  sex = 0, age = 0.02, age2 = 0, calendar_time = -0.01, diagnosis = log(1.38))
+  input_ref$smoking$ln_h_ces_betas <- "Diagnosis coefficient from Wu et al. BMC Public Health 2006"
+
+  input_help$smoking$smoking_ces_coefficient <- "Coefficient for the decay rate of smoking cessaton treatment, default is 100"
+  input$smoking$smoking_ces_coefficient <- 100
+  input_ref$smoking$smoking_ces_coefficient <- ""
+
+  input_help$smoking$smoking_cessation_adherence <- "Proportion adherent to smoking cessation treatment"
+  input$smoking$smoking_cessation_adherence <- 0.7
+  input_ref$smoking$smoking_cessation_adherence <- ""
 
 
   ## COPD
@@ -592,6 +600,9 @@ init_input <- function() {
 
   input$cost$cost_outpatient_diagnosis <- 98.89
   input_help$cost$cost_outpatient_diagnosis <- "Cost of diagnostic spirometry"
+
+  input$cost$cost_smoking_cessation <- 350
+  input_help$cost$cost_smoking_cessation <- "Cost of 12 weeks Nicotine Replacement Therapy from Mullen BMJ Tobacco Control 2014"
 
   #input$cost$doctor_visit_by_type<-t(as.matrix(c(50,150)))
 
