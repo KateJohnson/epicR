@@ -2810,7 +2810,7 @@ NumericMatrix Cget_all_events_matrix()
 //////////////////////////////////////////////////////////////////EVENT_SMOKING////////////////////////////////////;
 double event_smoking_change_tte(agent *ag)
 {
-  double rate;
+  double rate, background_rate, diagnosed_rate=0;
 
 
   if((*ag).smoking_status==0)
