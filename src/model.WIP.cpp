@@ -1952,7 +1952,7 @@ double update_prevalent_diagnosis(agent *ag)
 
     if ((*ag).diagnosis==1 && (*ag).smoking_status==1 && (rand_unif()<input.smoking.smoking_cessation_adherence))
       {
-        (*ag).cumul_cost+=(input.cost.cost_smoking_cessation/pow(1+input.global_parameters.discount_cost,(*ag).local_time+calendar_time-1))*(*ag).cohort;
+        (*ag).cumul_cost+=(input.cost.cost_smoking_cessation/pow(1+input.global_parameters.discount_cost,(*ag).local_time+calendar_time-1));
         (*ag).smoking_cessation=1;
       }
 
@@ -2017,7 +2017,7 @@ double update_prevalent_diagnosis(agent *ag)
 
       if ((*ag).diagnosis==1 && (*ag).smoking_status==1 && (rand_unif()<input.smoking.smoking_cessation_adherence))
      {
-        (*ag).cumul_cost+=(input.cost.cost_smoking_cessation/pow(1+input.global_parameters.discount_cost,(*ag).local_time+calendar_time-1))*(*ag).cohort;
+        (*ag).cumul_cost+=(input.cost.cost_smoking_cessation/pow(1+input.global_parameters.discount_cost,(*ag).local_time+calendar_time-1));
         (*ag).smoking_cessation=1;
      }
 
@@ -2068,7 +2068,7 @@ double update_prevalent_diagnosis(agent *ag)
 
         if ((*ag).diagnosis == 1 && (*ag).case_detection==1)
           {
-            (*ag).cumul_cost+=(input.cost.cost_outpatient_diagnosis/pow(1+input.global_parameters.discount_cost,(*ag).local_time+calendar_time-1))*(*ag).cohort;
+            (*ag).cumul_cost+=(input.cost.cost_outpatient_diagnosis/pow(1+input.global_parameters.discount_cost,(*ag).local_time+calendar_time-1));
             (*ag).diagnosis = 0;
             (*ag).time_at_diagnosis=0;
             (*ag).smoking_at_diagnosis=0;
@@ -2085,7 +2085,7 @@ double update_prevalent_diagnosis(agent *ag)
 
         if ((*ag).diagnosis==1 && (*ag).smoking_status==1 && (*ag).gold==0 && (rand_unif()<input.smoking.smoking_cessation_adherence))
             {
-              (*ag).cumul_cost+=(input.cost.cost_smoking_cessation/pow(1+input.global_parameters.discount_cost,(*ag).local_time+calendar_time-1))*(*ag).cohort;
+              (*ag).cumul_cost+=(input.cost.cost_smoking_cessation/pow(1+input.global_parameters.discount_cost,(*ag).local_time+calendar_time-1));
               (*ag).smoking_cessation=1;
             }
 
@@ -3105,7 +3105,7 @@ void event_exacerbation_process(agent *ag)
 
       if ((*ag).smoking_status==1 && (rand_unif()<input.smoking.smoking_cessation_adherence))
       {
-        (*ag).cumul_cost+=(input.cost.cost_smoking_cessation/pow(1+input.global_parameters.discount_cost,(*ag).local_time+calendar_time-1))*(*ag).cohort;
+        (*ag).cumul_cost+=(input.cost.cost_smoking_cessation/pow(1+input.global_parameters.discount_cost,(*ag).local_time+calendar_time-1));
         (*ag).smoking_cessation=1;
       }
     }
